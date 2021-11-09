@@ -17,38 +17,45 @@ fundo = pygame.image.load('manha.png')
 fundo = pygame.transform.scale(fundo, (largura, altura))
 
 zero = pygame.image.load('naruto.png')
-zero = pygame.transform.scale(zero, (55, 32*4))
+zero = pygame.transform.scale(zero, (32*2, 32*4))
 
 um = pygame.image.load('sasuke.png')
-um = pygame.transform.scale(um, (32*2, 32*4))
+um = pygame.transform.scale(um, (32*2, 32*5))
+
+zero1 = pygame.image.load('naruto_rasengan.png')
+zero1 = pygame.transform.scale(zero1, (32*3, 32*5))
+
+um1 = pygame.image.load('sasuke_chidori.png')
+um1 = pygame.transform.scale(um1, (32*3, 32*7))
+
+zero2 = pygame.image.load('naruto_rasengan.png')
+zero2 = pygame.transform.scale(zero2, (32*3, 32*5))
+
+um2 = pygame.image.load('sasuke_chidori.png')
+um2 = pygame.transform.scale(um2, (32*3, 32*7))
 
 
 def manha():
-    global fundo, zero, um
+    global fundo
     fundo = pygame.image.load('manha.png')
     fundo = pygame.transform.scale(fundo, (largura, altura))
-    zero
-    um
 
 
 def tarde():
-    global fundo, zero, um
+    global fundo, zero1, um1
     fundo = pygame.image.load('tarde.png')
     fundo = pygame.transform.scale(fundo, (largura, altura))
-    zero
-    um
 
        
 def noite():
-    global fundo, zero, um
+    global fundo, zero2, um2
     fundo = pygame.image.load('noite.png')
     fundo = pygame.transform.scale(fundo, (largura, altura))
-    zero
-    um
+    
 
 tela.blit(fundo, (0, 0))
 tela.blit(zero, (10, 242))
-tela.blit(um, (570, 242))
+tela.blit(um, (570, 210))
 
 pygame.display.flip()
 
@@ -67,18 +74,18 @@ while True:
                 manha()
                 tela.blit(fundo, (0, 0))
                 tela.blit(zero, (10, 242))
-                tela.blit(um, (570, 242))
+                tela.blit(um, (570, 210))
                 pygame.display.flip()
             if event.key == K_s:
                 tarde()
                 tela.blit(fundo, (0, 0))
-                tela.blit(zero, (140, 242))
-                tela.blit(um, (450, 242))
+                tela.blit(zero1, (120, 210))
+                tela.blit(um1, (410, 170))
                 pygame.display.flip()
             if event.key == K_d:
                 noite()
                 tela.blit(fundo, (0, 0))
-                tela.blit(zero, (270, 242))
-                tela.blit(um, (330, 242))            
+                tela.blit(zero2, (220, 210))
+                tela.blit(um2, (300, 170))            
                 pygame.display.flip()
     pygame.display.flip()
