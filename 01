@@ -1,0 +1,84 @@
+import pygame
+from pygame.locals import *
+from sys import exit
+
+pygame.init()
+
+largura = 640
+altura = 480
+
+tela = pygame.display.set_mode((largura, altura))
+pygame.display.set_caption('teste2')
+
+relogio = pygame.time.Clock()
+
+
+fundo = pygame.image.load('manha.png')
+fundo = pygame.transform.scale(fundo, (largura, altura))
+
+zero = pygame.image.load('naruto.png')
+zero = pygame.transform.scale(zero, (55, 32*4))
+
+um = pygame.image.load('sasuke.png')
+um = pygame.transform.scale(um, (32*2, 32*4))
+
+
+def manha():
+    global fundo, zero, um
+    fundo = pygame.image.load('manha.png')
+    fundo = pygame.transform.scale(fundo, (largura, altura))
+    zero
+    um
+
+
+def tarde():
+    global fundo, zero, um
+    fundo = pygame.image.load('tarde.png')
+    fundo = pygame.transform.scale(fundo, (largura, altura))
+    zero
+    um
+
+       
+def noite():
+    global fundo, zero, um
+    fundo = pygame.image.load('noite.png')
+    fundo = pygame.transform.scale(fundo, (largura, altura))
+    zero
+    um
+
+tela.blit(fundo, (0, 0))
+tela.blit(zero, (10, 242))
+tela.blit(um, (570, 242))
+
+pygame.display.flip()
+
+while True:
+    relogio.tick(120)
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            exit()
+
+    pygame.display.flip()
+    
+    for event in pygame.event.get():
+        if event.type == KEYDOWN:
+            if event.key == K_a:
+                manha()
+                tela.blit(fundo, (0, 0))
+                tela.blit(zero, (10, 242))
+                tela.blit(um, (570, 242))
+                pygame.display.flip()
+            if event.key == K_s:
+                tarde()
+                tela.blit(fundo, (0, 0))
+                tela.blit(zero, (140, 242))
+                tela.blit(um, (450, 242))
+                pygame.display.flip()
+            if event.key == K_d:
+                noite()
+                tela.blit(fundo, (0, 0))
+                tela.blit(zero, (270, 242))
+                tela.blit(um, (330, 242))            
+                pygame.display.flip()
+    pygame.display.flip()
